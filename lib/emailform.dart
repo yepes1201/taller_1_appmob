@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/widgets.dart';
 
 import 'package:flutter/material.dart';
@@ -23,7 +25,9 @@ class _EmailFormState extends State<EmailForm> {
           if (value.isEmpty) {
             return 'Por favor, ingrese un correo electrónico';
           }
-          if (!value.contains('@')) {
+
+          if (!value.contains('@') ||
+              !value.substring(value.indexOf('@')).contains('.')) {
             return 'Por favor, ingrese un correo electrónico válido';
           }
         }
